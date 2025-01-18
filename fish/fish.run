@@ -1,0 +1,11 @@
+#!/bin/bash
+
+cc \
+	$(../php/bin/php-config --includes) \
+	-L$(../php/bin/php-config --prefix)/lib \
+	fish.c \
+    -o fish.out \
+	-lphp \
+	-Wl,-rpath,$(../php/bin/php-config --prefix)/lib
+
+./fish.out
